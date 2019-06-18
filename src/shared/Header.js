@@ -6,8 +6,8 @@ import Logo from 'images/logo-wide.png';
 const NavBar = styled.nav`
 	background-image: linear-gradient(
 		to bottom,
-		rgba(255, 255, 255, 0.1),
-		rgba(255, 255, 255, 0.3)
+		rgba(0, 0, 0, 0.5),
+		rgba(0, 0, 0, 0)
 	);
 	/* background-color: rgba(0, 0, 0, 0.3); */
 	padding: 20px;
