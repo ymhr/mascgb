@@ -50,6 +50,10 @@ const Content = styled.div`
 	border-radius: 10px;
 	text-shadow: 0px 0px 3px rgba(0, 0, 0, 0.5);
 
+	@media only screen and (max-width: 600px) {
+		width: 85vw;
+	}
+
 	h2 {
 		font-size: 1.8em;
 	}
