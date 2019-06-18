@@ -1,13 +1,15 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
+import Logo from 'images/logo-wide.png';
 
 const NavBar = styled.nav`
 	background-image: linear-gradient(
 		to bottom,
-		rgba(0, 0, 0, 0.1),
-		rgba(0, 0, 0, 0.3)
+		rgba(255, 255, 255, 0.1),
+		rgba(255, 255, 255, 0.3)
 	);
+	/* background-color: rgba(0, 0, 0, 0.3); */
 	padding: 20px;
 	position: absolute;
 	top: 0;
@@ -23,6 +25,9 @@ const NavBar = styled.nav`
 	& h1 {
 		margin: 0 20px 0 0;
 		padding: 0;
+		position: relative;
+		/* top: 17px; */
+		top: 4px;
 	}
 
 	& ul {
@@ -46,7 +51,11 @@ export default function Header() {
 	return (
 		<div>
 			<NavBar>
-				<h1>MASCGB</h1>
+				<Link to="/">
+					<h1>
+						<img src={Logo} alt="MASCGB Logo" />
+					</h1>
+				</Link>
 				<ul>
 					<li>
 						<Link to="/">Home</Link>
