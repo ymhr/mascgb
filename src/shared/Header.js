@@ -1,7 +1,9 @@
 import React from 'react';
 import { Link } from 'react-router-dom';
 import styled from 'styled-components';
-import Logo from 'images/logo-wide.png';
+import LogoWide from 'images/logo-wide.png';
+import LogoTall from 'images/logo.png';
+import MediaQuery from 'react-responsive';
 
 const NavBar = styled.nav`
 	background-image: linear-gradient(
@@ -9,7 +11,6 @@ const NavBar = styled.nav`
 		rgba(0, 0, 0, 0.5),
 		rgba(0, 0, 0, 0)
 	);
-	/* background-color: rgba(0, 0, 0, 0.3); */
 	padding: 20px;
 	position: absolute;
 	top: 0;
@@ -26,8 +27,11 @@ const NavBar = styled.nav`
 		margin: 0 20px 0 0;
 		padding: 0;
 		position: relative;
-		/* top: 17px; */
 		top: 4px;
+
+		.responsive-logo {
+			width: 100px;
+		}
 	}
 
 	& ul {
@@ -53,7 +57,20 @@ export default function Header() {
 			<NavBar>
 				<Link to="/">
 					<h1>
-						<img src={Logo} alt="MASCGB Logo" />
+						<MediaQuery query="(max-width: 600px)">
+							{(matches) => {
+								if (matches)
+									return (
+										<img
+											src={LogoTall}
+											alt="MASCGB Logo"
+											className="responsive-logo"
+										/>
+									);
+
+								return <img src={LogoWide} alt="MASCGB Logo" />;
+							}}
+						</MediaQuery>
 					</h1>
 				</Link>
 				<ul>

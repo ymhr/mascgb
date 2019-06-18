@@ -1,6 +1,6 @@
 import React from 'react';
 import styled from 'styled-components';
-import useVibrant from 'hooks/useVibrant';
+import useVibrant from 'use-vibrant-hook';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
