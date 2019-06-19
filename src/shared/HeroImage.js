@@ -1,12 +1,21 @@
 import React from 'react';
-import styled from 'styled-components';
+import styled, { keyframes } from 'styled-components';
 import useVibrant from 'use-vibrant-hook';
 import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
 import { faChevronDown } from '@fortawesome/free-solid-svg-icons';
 
+const bounce = keyframes`
+	from {
+		transform: translateY(0px);
+	}
+	to {
+		transform: translateY(-10px);
+	}
+`;
+
 const Image = styled.div`
 	background-image: url(${(props) => props.image});
-	height: ${(props) => (props.small ? '60vh' : '95vh')};
+	height: ${(props) => (props.small ? '40vh' : '100vh')};
 	background-size: cover;
 	background-position: center;
 	position: relative;
@@ -23,6 +32,7 @@ const Image = styled.div`
 		bottom: 20px;
 		left: calc(50vw - 50px);
 		opacity: 0.4;
+		animation: ${bounce} 2s ease-in-out infinite alternate;
 	}
 `;
 
