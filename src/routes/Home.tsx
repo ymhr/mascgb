@@ -2,7 +2,7 @@ import React from 'react';
 import HeroImage from 'shared/HeroImage';
 import { Container, Row, Col } from 'react-grid-system';
 
-export default function About() {
+export default function Home() {
 	const images = [
 		'https://images.unsplash.com/photo-1530281700549-e82e7bf110d6?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1834&q=80',
 		'https://images.unsplash.com/photo-1513263196760-c38dee051d18?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1931&q=80',
@@ -11,7 +11,7 @@ export default function About() {
 		'https://images.unsplash.com/photo-1507146426996-ef05306b995a?ixlib=rb-1.2.1&ixid=eyJhcHBfaWQiOjEyMDd9&auto=format&fit=crop&w=1950&q=80'
 	];
 
-	const [image, setImage] = React.useState(null);
+	const [image, setImage] = React.useState<string | null>(null);
 
 	React.useEffect(() => {
 		if (image) return;
@@ -21,13 +21,12 @@ export default function About() {
 	return (
 		<>
 			<HeroImage
-				title="About us"
+				title="Welcome to the MASCGB"
 				text={{
 					__html:
-						"This is the page where we give you some information about us.<br>We've been around since 19whatever and we've got members all over the country etc etc"
+						"This is the Miniature American Shepherd Club of Great Britain.<br><br>We love the breed, and we hope you will too!<br><br>We're always on the look out for new friends, so please get in touch!"
 				}}
 				image={image}
-				small={true}
 			/>
 			<Container>
 				<Row>

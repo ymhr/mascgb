@@ -13,7 +13,7 @@ const bounce = keyframes`
 	}
 `;
 
-const Image = styled.div`
+const Image = styled.div<{image: string|null, small?: boolean}>`
 	background-image: url(${(props) => props.image});
 	height: ${(props) => (props.small ? '40vh' : '100vh')};
 	background-size: cover;
@@ -36,7 +36,7 @@ const Image = styled.div`
 	}
 `;
 
-const Overlay = styled.div`
+const Overlay = styled.div<{dark: any, light: any}>`
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(
@@ -72,17 +72,23 @@ const Content = styled.div`
 		font-size: 16px;
 	}
 `;
+export interface Props {
+	title: string,
+	text: {__html: string},
+	image: string|null,
+	small?: boolean
+}
 
-export default function HeroImage({ title, text, image, small }) {
+export default function HeroImage({ title, text, image, small }: Props) {
 	const { colors, done } = useVibrant(image);
 
 	return (
 		<>
 			<Image image={image} small={small}>
-				{done && (
+				{done && colors && (
 					<Overlay
-						dark={colors.DarkVibrant.rgb}
-						light={colors.Vibrant.rgb}
+						dark={colors && colors.DarkVibrant && colors.DarkVibrant.rgb}
+						light={colors && colors.Vibrant && colors.Vibrant.rgb}
 					/>
 				)}
 				<Content>
