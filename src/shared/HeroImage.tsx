@@ -36,13 +36,13 @@ const Image = styled.div<{image: string|null, small?: boolean}>`
 	}
 `;
 
-const Overlay = styled.div<{dark: any, light: any}>`
+const Overlay = styled.div<{dark: [number, number, number] | undefined, light: [number, number, number] | undefined}>`
 	height: 100%;
 	width: 100%;
 	background-image: linear-gradient(
 		to bottom right,
-		rgba(${(props) => props.dark.join(', ')}, 0.4),
-		rgba(${(props) => props.light.join(', ')}, 0.7)
+		rgba(${(props) => props.dark && props.dark.join(', ')}, 0.4),
+		rgba(${(props) => props.light && props.light.join(', ')}, 0.7)
 	);
 	position: absolute;
 	top: 0;
